@@ -2,24 +2,24 @@
 
 # Nama Proyek Anda
 
-Deskripsi singkat dan padat tentang proyek Anda. Jelaskan tujuan proyek dan apa yang diharapkan pengguna dari proyek ini.
+Web Dailyjournal
+
+yang menceritakan tentang asal usul mie ayam dan kenapa bisa sampai indonesia
+
+proyek ini dibuat untuk memenuhi tugas di salah satu mata kuliah saya
 
 ---
 
 ## 🚀 Fitur Utama
-- **Fitur 1**: Jelaskan fitur pertama dengan singkat.
-- **Fitur 2**: Jelaskan fitur kedua.
-- **Fitur 3**: Tambahkan fitur lain yang relevan.
+- **Fitur 1**: Menambahan Article
+- **Fitur 2**: Menghapus Article
+- **Fitur 3**: Mengedit Article
 
 ## 🛠️ Instalasi
 Ikuti langkah-langkah di bawah ini untuk menginstal dan menjalankan proyek di komputer Anda.
 
 ### Prasyarat
 Pastikan Anda memiliki hal-hal berikut:
-- [Nama perangkat lunak/dependensi] (versi)
-- [Nama perangkat lunak/dependensi lainnya]
+- XAMPP / laragon (server lokal)
+- code editor
 
-### Langkah-Langkah
-1. Clone repository:
-   ```bash
-   git clone https://github.com/username/nama-proyek.git
