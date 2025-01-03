@@ -21,12 +21,13 @@
           <thead class="table-dark">
                <tr>
                     <th>No</th>
-                    <th class="col-2">Judul</th>
-                    <th class="col-2">Nama</th>
-                    <th class="col-2">Tanggal</th>
-                    <th class="col-6">Isi</th>
-                    <th class="col-2">Gambar</th>
-                    <th class="col-2">Aksi</th>
+                    <th class="col-1 col-sm-2 col-md-2">Nama cabang</th>
+                    <th class="col-2 col-sm-3 col-md-4">Detail alamat</th>
+                    <th class="col-2 col-sm-3 col-md-4">URL google maps</th>
+                    <th class="col-2 col-sm-2 col-md-2">Dibuka pada</th>
+                    <th class="col-2 col-sm-2 col-md-2">Gambar</th>
+                    <th class="col-2 col-sm-2 col-md-2">Aksi</th>
+
                </tr>
           </thead>
           <tbody>
@@ -38,32 +39,32 @@
                $limit_start = ($hlm - 1) * $limit;
                $no = $limit_start + 1;
 
-               $sql = "SELECT * FROM article ORDER BY tanggal DESC LIMIT $limit_start, $limit";
+               $sql = "SELECT * FROM cabang ORDER BY timedate DESC LIMIT $limit_start, $limit";
                $hasil = $conn->query($sql);
 
                $no = 1;
                while ($row = $hasil->fetch_assoc()) {
                ?>
                     <tr>
-                         <td class="align-middle"><?= $no++ ?></td>
-                         <td class="align-middle">
-                              <strong><?= $row["judul"] ?></strong>
+                         <td><?= $no++ ?></td>
+                         <td>
+                              <strong><?= $row["nama_cabang"] ?></strong>
                          </td>
-                         <td class="align-middle"><?= $row["username"] ?></td>
-                         <td class="align-middle"><?= $row["tanggal"] ?></td>
-                         <td class="align-middle"><?= $row["isi"] ?></td>
-                         <td class="align-middle">
+                         <td><?= $row["detail_alamat"] ?></td>
+                         <td><a href="<?= $row["google_maps"] ?>"><?= $row["google_maps"] ?></a></td>
+                         <td><?= $row["timedate"] ?></td>
+                         <td>
                               <?php
                               if ($row["gambar"] != '') {
-                                   if (file_exists('img/' . $row["gambar"] . '')) {
+                                   if (file_exists('img_cabang/' . $row["gambar"] . '')) {
                               ?>
-                                        <img src="img/<?= $row["gambar"] ?>" class="rounded" width="" height="100">
+                                        <img src="img_cabang/<?= $row["gambar"] ?>" class="rounded" width="" height="70">
                               <?php
                                    }
                               }
                               ?>
                          </td>
-                         <td class="align-middle">
+                         <td>
                               <div class="d-flex align-items-center gap-3">
                                    <a href="#" title="edit" class="d-flex align-items-center gap-1 bg-primary p-2 rounded  text-white text-decoration-none " data-bs-toggle="modal" data-bs-target="#modalEdit<?= $row["id"] ?>">
                                         <i class="bi bi-pencil-square fs-5"></i>
@@ -79,19 +80,23 @@
                                    <div class="modal-dialog">
                                         <div class="modal-content">
                                              <div class="modal-header">
-                                                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Article</h1>
+                                                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Cabang</h1>
                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                              </div>
                                              <form method="post" action="" enctype="multipart/form-data">
                                                   <div class="modal-body">
                                                        <div class="mb-3">
-                                                            <label for="formGroupExampleInput" class="form-label">Judul</label>
+                                                            <label for="formGroupExampleInput" class="form-label">Nama cabang</label>
                                                             <input type="hidden" name="id" value="<?= $row["id"] ?>">
-                                                            <input type="text" class="form-control" name="judul" placeholder="Tuliskan Judul Artikel" value="<?= $row["judul"] ?>" required>
+                                                            <input type="text" class="form-control" name="nama_cabang" placeholder="Masukan nama cabang" value="<?= $row["nama_cabang"] ?>" required>
                                                        </div>
                                                        <div class="mb-3">
-                                                            <label for="floatingTextarea2">Isi</label>
-                                                            <textarea class="form-control" placeholder="Tuliskan Isi Artikel" name="isi" required><?= $row["isi"] ?></textarea>
+                                                            <label for="floatingTextarea2">Detail alamat</label>
+                                                            <textarea class="form-control" placeholder="Masukan detail alamat" name="detail_alamat" required><?= $row["detail_alamat"] ?></textarea>
+                                                       </div>
+                                                       <div class="mb-3">
+                                                            <label for="formGroupExampleInput" class="form-label">URL google maps</label>
+                                                            <input type="text" class="form-control" name="google_maps" placeholder="Masukan url google maps" value="<?= $row["google_maps"] ?>" required>
                                                        </div>
                                                        <div class="mb-3">
                                                             <label for="formGroupExampleInput2" class="form-label">Ganti Gambar</label>
@@ -101,9 +106,9 @@
                                                             <label for="formGroupExampleInput3" class="form-label">Gambar Lama</label>
                                                             <?php
                                                             if ($row["gambar"] != '') {
-                                                                 if (file_exists('img/' . $row["gambar"] . '')) {
+                                                                 if (file_exists('img_cabang/' . $row["gambar"] . '')) {
                                                             ?>
-                                                                      <br><img src="img/<?= $row["gambar"] ?>" width="100">
+                                                                      <br><img src="img_cabang/<?= $row["gambar"] ?>" width="100">
                                                             <?php
                                                                  }
                                                             }
@@ -126,13 +131,13 @@
                                    <div class="modal-dialog">
                                         <div class="modal-content">
                                              <div class="modal-header">
-                                                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi Hapus Article</h1>
+                                                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi Hapus Cabang</h1>
                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                              </div>
                                              <form method="post" action="" enctype="multipart/form-data">
                                                   <div class="modal-body">
                                                        <div class="mb-3">
-                                                            <label for="formGroupExampleInput" class="form-label">Yakin akan menghapus artikel "<strong><?= $row["judul"] ?></strong>"?</label>
+                                                            <label for="formGroupExampleInput" class="form-label">Yakin akan menghapus artikel "<strong><?= $row["nama_cabang"] ?></strong>"?</label>
                                                             <input type="hidden" name="id" value="<?= $row["id"] ?>">
                                                             <input type="hidden" name="gambar" value="<?= $row["gambar"] ?>">
                                                        </div>
@@ -156,11 +161,11 @@
 
 
      <?php
-     $sql1 = "SELECT * FROM article";
+     $sql1 = "SELECT * FROM cabang";
      $hasil1 = $conn->query($sql1);
      $total_records = $hasil1->num_rows;
      ?>
-     <p>Total article : <?php echo $total_records; ?></p>
+     <p>Total cabang : <?php echo $total_records; ?></p>
      <nav class="mb-2">
           <ul class="pagination justify-content-end">
                <?php

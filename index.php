@@ -18,10 +18,40 @@ include "koneksi.php";
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
     crossorigin="anonymous" />
   <link rel="stylesheet" href="css/font.css">
-  <link rel="stylesheet" href="css/article-dan-about.css">
   <link rel="stylesheet" href="css/sejarah.css">
-  <link rel="stylesheet" href="css/home.css">
 </head>
+
+<style>
+  #about #img {
+    rotate: 10deg;
+    transition: rotate 0.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+
+
+  #about #img:hover {
+    rotate: 0deg;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .card,
+  .card img {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  }
+
+  @media screen and (max-width: 768px) {
+    #about #img {
+      rotate: 0deg;
+    }
+
+    #about #img:hover {
+      rotate: 2deg;
+      transition: all 0.5s ease-in-out;
+    }
+
+  }
+</style>
+
 
 <body class="lexend">
   <!-- nav begin -->
@@ -47,7 +77,7 @@ include "koneksi.php";
             <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#sejarah">Sejarah</a>
+            <a class="nav-link" href="#cabang">Cabang</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#article">Article</a>
@@ -76,119 +106,116 @@ include "koneksi.php";
       </div>
     </div>
   </nav>
+  <!-- nav end -->
 
-  <!-- home begin -->
-  <section id="home" class="relative" style="height: 95vh; margin-top: -70px;">
-    <div id="bg-home"></div>
-    <div id="content-home" class="container text-center p-lg-5 p-4 absolute">
-      <h2 class="fw-bold">Selamat Datang di Dunia Mie Ayam – Cita Rasa yang Tak Pernah Lekang oleh Waktu!</h2>
-      <p>
-        Mie Ayam, hidangan legendaris Indonesia, hadir dengan rasa gurih dan kenyal yang memikat. Dikenal sejak abad ke-20, mie ayam awalnya dibawa oleh pedagang Tionghoa dan segera menjadi favorit di seluruh Indonesia. Kini, dengan berbagai varian seperti ayam cincang, bakso, hingga mie ayam seafood, mie ayam terus berkembang menjadi hidangan yang disukai semua kalangan.
-      </p>
-    </div>
-    <div id="content-scrol-down" class="container d-block text-center absolute">
-      <a href="#about" class="text-decoration-none text-black">
-        <p>Pelajari lebih lanjut</p>
-        <p id="scrol-down"><i class="bi bi-caret-down-fill"></i></p>
-      </a>
+  <!-- gallery -->
+  <section class="container mt-5">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <?php
+        // Query untuk mengambil gambar yang di-upload
+        $sql = "SELECT * FROM gallery ORDER BY uploaded_at DESC";
+        $hasil = $conn->query($sql);
 
+        $counter = 0;
+        while ($row = $hasil->fetch_assoc()) {
+          // Menambahkan button untuk setiap gambar
+          echo '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="' . $counter . '" class="' . ($counter === 0 ? 'active' : '') . '" aria-current="' . ($counter === 0 ? 'true' : 'false') . '" aria-label="Slide ' . ($counter + 1) . '"></button>';
+          $counter++;
+        }
+        ?>
+      </div>
+      <div class="carousel-inner">
+        <?php
+        $counter = 0;
+        // Mengatur ulang pointer ke awal data hasil query
+        $hasil->data_seek(0);
+
+        while ($row = $hasil->fetch_assoc()) {
+          $activeClass = ($counter === 0) ? 'active' : ''; // Gambar pertama akan aktif
+        ?>
+          <div class="carousel-item <?= $activeClass ?>">
+            <img src="img_gallery/<?= $row['gambar'] ?>" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="text-dark"><?= htmlspecialchars($row['judul']) ?></h5>
+            </div>
+          </div>
+        <?php
+          $counter++;
+        }
+        ?>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </section>
-  <!-- home end -->
+  <!-- gallery end -->
 
   <!-- about -->
-  <section id="about" class="container">
-    <div>
-      <h2 class="fw-bold border-bottom border-5 border-primary py-3" style="width: max-content;">Tentang Mie Ayam</h2>
+  <section class="container d-flex align-items-center justify-content-center mt-5" id="about">
+    <div class="d-lg-flex d-md-block gap-3">
+      <?php
+      $sql = "SELECT * FROM about ORDER BY timedate DESC";
+      $hasil = $conn->query($sql);
+
+      while ($row = $hasil->fetch_assoc()) {
+      ?>
+        <!-- left -->
+        <div>
+          <h2 class="fw-bold border-bottom border-5 border-primary py-3 my-5" style="width: max-content;">Tentang Mie Ayam Legenda</h2>
+          <p><?= $row["deskripsi"] ?></p>
+          <a href="<?= $row["link"] ?>" class="mb-3">Baca artikel selengkapnya</a>
+          <br>
+          <small class="text-body-secondary">Ditulis pada: <?= $row["timedate"] ?></small>
+        </div>
+        <!-- right -->
+        <div id="img" class="mt-md-0 mt-3 border p-3 bg-dark rounded-3 border-2 d-flex justify-content-center">
+          <img src="img_about/<?= $row["gambar"] ?>" alt="history" class="img-fluid border border-5 border-light w-100" />
+        </div>
     </div>
-    <div class="d-lg-flex justify-content-between relative">
-      <div class="text-section">
-        <p>Mie ayam adalah hidangan khas Indonesia yang berasal dari bakmi, mie tradisional Tiongkok Selatan, khususnya dari daerah Fujian dan Guangdong. Saat pertama kali diperkenalkan di Indonesia, bakmi menggunakan daging babi sebagai topping. Namun, karena mayoritas penduduk Indonesia adalah Muslim, penggunaan daging babi digantikan dengan daging ayam yang disemur kecap, sehingga hidangan ini dapat diterima oleh semua kalangan.</p>
-        <a href="https://id.wikipedia.org/wiki/Mi_ayam">Baca artikel selengkapnya</a>
-      </div>
-      <div id="bingkai-1" class="image-container position-relative">
-        <img src="image/history.png" alt="history" class="img-fluid img-history" />
-      </div>
-    </div>
+  <?php
+      }
+  ?>
   </section>
 
-  <!-- sejarah -->
-  <section id="sejarah" class="container " style="margin-top: 150px;">
-    <h2 class="text-center fw-bold border-bottom border-5 border-primary py-3 my-5" style="width: max-content; margin: 0 auto;">Sejarah Mie Ayam</h2>
-    <div class="container d-lg-block d-flex items-center justify-content-center gap-5">
-      <!-- line -->
-      <div id="content-line" class="d-lg-flex align-items-center justify-content-center">
-        <p class="fs-4" title="Sekitar abad ke-19"><i class="bi bi-calendar3"></i></p>
-        <div id="line-1" class="border border-2"></div>
-        <p class="fs-4" title="Sekitar abad ke-19"><i class="bi bi-calendar3"></i></p>
-        <div id="line-2" class="border border-2"></div>
-        <p class="fs-4" title="Sekitar abad ke-19"><i class="bi bi-calendar3"></i></p>
-        <div id="line-3" class="border border-2"></div>
-        <p class="fs-4" title="Sekitar abad ke-19"><i class="bi bi-calendar3"></i></p>
-        <div id="line-4" class="border border-2"></div>
-        <p class="fs-4" title="Sekitar abad ke-19"><i class="bi bi-calendar3"></i></p>
-      </div>
-      <!-- content -->
-      <div class="d-lg-flex justify-content-between">
-        <!-- 1 -->
-        <div class="text-center p-3" style="width: 300px;">
-          <a href="https://jak101fm.com/2023/11/mengenal-sejarah-dan-asal-usul-mie-ayam-sarapan-pilihan-masyarakat-jakarta/#:~:text=Sejarah%20Mie%20Ayam%20di%20Indonesia,dengan%20sebutan%20mie%20ayam%20Wonogiri." title="Baca artikel selengkapnya" class="text-decoration-none text-dark">
-            <div id="content-card-sejarah" class="mt-3 border border-2 border-grey rounded-3 p-3">
-              <p class="fw-medium">Mie Ayam</p>
-              <p>
-                Mie ayam adalah makanan yang merupakan hasil akulturasi budaya Tionghoa dan Indonesia. Sejarah mie ayam di Indonesia dapat dijelaskan sebagai berikut:
-              </p>
-            </div>
-          </a>
-        </div>
-        <!-- 2 -->
-        <div class="text-center p-3" style="width: 300px;">
-          <a href="https://jak101fm.com/2023/11/mengenal-sejarah-dan-asal-usul-mie-ayam-sarapan-pilihan-masyarakat-jakarta/#:~:text=Sejarah%20Mie%20Ayam%20di%20Indonesia,dengan%20sebutan%20mie%20ayam%20Wonogiri." title="Baca artikel selengkapnya" class="text-decoration-none text-dark">
-            <div id="content-card-sejarah" class="mt-3 border border-2 border-grey rounded-3 p-3">
-              <p class="fw-medium">Asal Usul</p>
-              <p>
-                Mie ayam berasal dari bakmi, hidangan khas China Selatan, terutama di wilayah Fujian dan Guangdong.
-              </p>
-            </div>
-          </a>
-        </div>
-        <!-- 3 -->
-        <div class="text-center p-3" style="width: 300px;">
-          <a href="https://travel.okezone.com/read/2023/05/17/301/2815820/siapa-yang-pertama-kali-menciptakan-mi-ayam-begini-sejarahnya?page=all#:~:text=Zaman%20dulu%20banyak%20masyarakat%20dari,merupakan%20makanan%20otentik%20khas%20Chinese." title="Baca artikel selengkapnya" class="text-decoration-none text-dark">
-            <div id="content-card-sejarah" class="mt-3 border border-2 border-grey rounded-3 p-3">
-              <p class="fw-medium">Kedatangan bakmi ke Indonesia</p>
-              <p>
-                Bakmi dibawa oleh masyarakat Tionghoa yang merantau dan menetap di Indonesia.
-              </p>
-            </div>
-          </a>
-        </div>
-        <!-- 4 -->
-        <div class="text-center p-3" style="width: 300px;">
-          <a href="https://www.nibble.id/asal-usul-mie-ayam/#:~:text=Hidangan%20ini%20mulai%20masuk%20ke,bisa%20dikonsumsi%20oleh%20semua%20orang.&text=Meskipun%20berasal%20dari%20China%2C%20mie,bawang%20putih%2C%20dan%20kulit%20ayam." title="Baca artikel selengkapnya" class="text-decoration-none text-dark">
-            <div id="content-card-sejarah" class="mt-3 border border-2 border-grey rounded-3 p-3">
-              <p class="fw-medium">Perubahan topping</p>
-              <p>
-                Pada awalnya, bakmi diberi topping daging babi, namun diganti dengan daging ayam yang disemur kecap karena menyesuaikan dengan selera lokal dan karena Indonesia saat itu masih didominasi kerajaan Islam.
-              </p>
-            </div>
-          </a>
-        </div>
-        <!-- 5 -->
-        <div class="text-center p-3" style="width: 300px;">
-          <a href="https://jak101fm.com/2023/11/mengenal-sejarah-dan-asal-usul-mie-ayam-sarapan-pilihan-masyarakat-jakarta/#:~:text=Sejarah%20Mie%20Ayam%20di%20Indonesia,dengan%20sebutan%20mie%20ayam%20Wonogiri." title="Baca artikel selengkapnya" class="text-decoration-none text-dark">
-            <div id="content-card-sejarah" class="mt-3 border border-2 border-grey rounded-3 p-3">
-              <p class="fw-medium">Perkembangan di Wonogiri</p>
-              <p>
-                Mie ayam berkembang di daerah Wonogiri, Jawa Tengah, dan menjadi makanan wajib masyarakat setempat. Mie ayam Wonogiri memiliki ciri khas rasa yang enak dan racikan minyak ayam yang terbuat dari minyak sayur, jahe, ketumbar, lada, bawang putih, dan kulit ayam.
-              </p>
-            </div>
-          </a>
-        </div>
+  <!-- cabang begin -->
+  <section id="cabang" class="container text-center mb-5">
+    <h2 class="text-center fw-bold border-bottom border-5 border-primary py-3 my-5" style="width: max-content; margin: 0 auto;">Cabang</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+      <?php
+      $sql = "SELECT * FROM cabang ORDER BY timedate DESC";
+      $hasil = $conn->query($sql);
 
-      </div>
+      while ($row = $hasil->fetch_assoc()) {
+      ?>
+        <div class="col">
+          <div class="card mb-3 p-3">
+            <img src="img_cabang/<?= $row["gambar"] ?>" class="card-img" alt="...">
+            <div class="card-body m-0 mt-2 p-0 text-start">
+              <h5 class="card-title text-start"><?= $row["nama_cabang"] ?></h5>
+              <p class="mb-2 m-0">Dibuka pada: <i><?= $row["timedate"] ?></i></p>
+              <div class="d-lg-flex justify-content-between align-items-end">
+                <small class="text-body-secondary mb-2" style="max-width: 63%;"><?= $row["detail_alamat"] ?></small>
+                <a href="<?= $row["google_maps"] ?>" class="d-flex align-items-center justify-content-center gap-1 text-end border border-2 text-decoration-none p-2 text-white fw-medium bg-primary rounded-4" target="_blank">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  Open Maps</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <?php
+      }
+      ?>
     </div>
+
   </section>
+  <!-- end cabang -->
 
   <!-- article begin -->
   <section id="article" class="container text-center mb-5">
@@ -221,7 +248,6 @@ include "koneksi.php";
     </div>
   </section>
   <!-- article end -->
-
 
   <!-- footer begin -->
   <footer class="bg-dark text-white py-5">

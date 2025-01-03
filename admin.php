@@ -53,12 +53,7 @@ if (!isset($_SESSION['username'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin.php?page=dashboard">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin.php?page=article">Article</a>
-                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-primary fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?= $_SESSION['username'] ?>
@@ -72,24 +67,34 @@ if (!isset($_SESSION['username'])) {
         </div>
     </nav>
     <!-- nav end -->
+     
     <!-- content begin -->
     <section id="content" class="p-5">
         <div class="container">
+            <!-- Breadcrumbs -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="admin.php">Admin</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <?= isset($_GET['page']) ? ucfirst($_GET['page']) : "Menu" ?>
+                    </li>
+                </ol>
+            </nav>
+
             <?php
+            // Memeriksa apakah parameter 'page' ada di URL
             if (isset($_GET['page'])) {
-            ?>
-                <h4 class="lead display-6 pb-2 border-bottom fw-semibold border-primary"><?= ucfirst($_GET['page']) ?></h4>
-            <?php
+                // Jika ada, tampilkan halaman sesuai dengan parameter 'page'
                 include($_GET['page'] . ".php");
             } else {
-            ?>
-                <h4 class="lead display-6 pb-2 border-bottom fw-semibold border-primary">Dashboard</h4>
-            <?php
-                include("dashboard.php");
+                // Jika tidak ada, tampilkan 'menu.php' sebagai default
+                include("menu.php");
             }
             ?>
         </div>
     </section>
+
+
     <!-- content end -->
     <!-- footer begin -->
     <footer class="bg-dark text-white py-5">

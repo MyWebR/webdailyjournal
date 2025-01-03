@@ -1,3 +1,4 @@
+<!-- article.php -->
 <?php
 include 'koneksi.php'; // Path ke file koneksi.php
 ?>
@@ -24,11 +25,11 @@ include 'koneksi.php'; // Path ke file koneksi.php
 
 <body>
 
-    <div class="container">
+    <div>
 
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between mb-5">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-secondary mb-2" data-bs-toggle="modal" data-bs-target="#modalTambah">
+            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalTambah">
                 <i class="bi bi-plus-lg"></i> Tambah Article
             </button>
         </div>

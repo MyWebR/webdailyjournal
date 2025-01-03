@@ -1,3 +1,5 @@
+<!-- about_data.php -->
+
 <head>
      <meta charset="utf-8" />
      <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,18 +18,17 @@
 </head>
 
 <body>
-
-     <table class="table table-striped">
+     <table class="table table-striped custom-table">
           <thead class="table-dark">
                <tr>
                     <th>No</th>
-                    <th class="col-2">Judul</th>
-                    <th class="col-2">Nama</th>
-                    <th class="col-2">Tanggal</th>
-                    <th class="col-6">Isi</th>
+                    <th class="col-5">Deskripsi</th>
+                    <th class="col-2">Link refrensi deskripsi</th>
+                    <th class="col-2">timedate</th>
                     <th class="col-2">Gambar</th>
                     <th class="col-2">Aksi</th>
                </tr>
+
           </thead>
           <tbody>
                <?php
@@ -38,42 +39,44 @@
                $limit_start = ($hlm - 1) * $limit;
                $no = $limit_start + 1;
 
-               $sql = "SELECT * FROM article ORDER BY tanggal DESC LIMIT $limit_start, $limit";
+               $sql = "SELECT * FROM about ORDER BY timedate DESC LIMIT $limit_start, $limit";
                $hasil = $conn->query($sql);
+
+               // untuk mengecek jumlah data
+               $count_query = "SELECT COUNT(*) as total FROM about";
+               $count_result = $conn->query($count_query);
+               $count_data = $count_result->fetch_assoc();
+               $total_records = $count_data['total'];
 
                $no = 1;
                while ($row = $hasil->fetch_assoc()) {
                ?>
                     <tr>
-                         <td class="align-middle"><?= $no++ ?></td>
-                         <td class="align-middle">
-                              <strong><?= $row["judul"] ?></strong>
+                         <td><?= $no++ ?></td>
+                         <td class="align-middle"><strong><?= $row["deskripsi"] ?></strong></td>
+                         <td><a href="<?= $row["link"] ?>"><?= $row["link"] ?></a></td>
+                         <td><?= $row["timedate"] ?></td>
+                         <td>
+                              <?php if ($row["gambar"] != '' && file_exists('img_about/' . $row["gambar"])) { ?>
+                                   <img src="img_about/<?= $row["gambar"] ?>" class="rounded" width="100">
+                              <?php } ?>
                          </td>
-                         <td class="align-middle"><?= $row["username"] ?></td>
-                         <td class="align-middle"><?= $row["tanggal"] ?></td>
-                         <td class="align-middle"><?= $row["isi"] ?></td>
-                         <td class="align-middle">
-                              <?php
-                              if ($row["gambar"] != '') {
-                                   if (file_exists('img/' . $row["gambar"] . '')) {
-                              ?>
-                                        <img src="img/<?= $row["gambar"] ?>" class="rounded" width="" height="100">
-                              <?php
-                                   }
-                              }
-                              ?>
-                         </td>
-                         <td class="align-middle">
+                         <td>
+
                               <div class="d-flex align-items-center gap-3">
-                                   <a href="#" title="edit" class="d-flex align-items-center gap-1 bg-primary p-2 rounded  text-white text-decoration-none " data-bs-toggle="modal" data-bs-target="#modalEdit<?= $row["id"] ?>">
-                                        <i class="bi bi-pencil-square fs-5"></i>
+                                   <a href="#" title="edit" class="bg-primary p-2 rounded text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $row["id"] ?>">
+                                        <i class="bi bi-pencil-square text-white fs-5"></i>
                                         Edit
                                    </a>
-                                   <a href="#" title="delete" class="d-flex align-items-center gap-1 bg-danger p-2 rounded  text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $row["id"] ?>">
-                                        <i class="bi bi-trash3-fill fs-5"></i>
-                                        Hapus
-                                   </a>
+                                   <?php if ($total_records > 1) { ?>
+                                        <a href="#" title="delete" class="bg-danger p-2 rounded text-white text-decoration-none"
+                                             data-bs-toggle="modal" data-bs-target="#modalHapus<?= $row["id"] ?>">
+                                             <i class="bi bi-trash3-fill text-white fs-5"></i>
+                                             Hapus
+                                        </a>
+                                   <?php } ?>
                               </div>
+
                               <!-- Awal Modal Edit -->
                               <div class="modal fade" id="modalEdit<?= $row["id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                    <div class="modal-dialog">
@@ -85,13 +88,13 @@
                                              <form method="post" action="" enctype="multipart/form-data">
                                                   <div class="modal-body">
                                                        <div class="mb-3">
-                                                            <label for="formGroupExampleInput" class="form-label">Judul</label>
+                                                            <label for="floatingTextarea2">Deskripsi</label>
                                                             <input type="hidden" name="id" value="<?= $row["id"] ?>">
-                                                            <input type="text" class="form-control" name="judul" placeholder="Tuliskan Judul Artikel" value="<?= $row["judul"] ?>" required>
+                                                            <textarea class="form-control" placeholder="Tuliskan Isi deskripsi" name="deskripsi" required><?= $row["deskripsi"] ?></textarea>
                                                        </div>
                                                        <div class="mb-3">
-                                                            <label for="floatingTextarea2">Isi</label>
-                                                            <textarea class="form-control" placeholder="Tuliskan Isi Artikel" name="isi" required><?= $row["isi"] ?></textarea>
+                                                            <label for="formGroupExampleInput" class="form-label">link</label>
+                                                            <input type="text" class="form-control" name="link" value="<?= $row["link"] ?>">
                                                        </div>
                                                        <div class="mb-3">
                                                             <label for="formGroupExampleInput2" class="form-label">Ganti Gambar</label>
@@ -126,13 +129,13 @@
                                    <div class="modal-dialog">
                                         <div class="modal-content">
                                              <div class="modal-header">
-                                                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi Hapus Article</h1>
+                                                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Konfirmasi Hapus gallery</h1>
                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                              </div>
                                              <form method="post" action="" enctype="multipart/form-data">
                                                   <div class="modal-body">
                                                        <div class="mb-3">
-                                                            <label for="formGroupExampleInput" class="form-label">Yakin akan menghapus artikel "<strong><?= $row["judul"] ?></strong>"?</label>
+                                                            <label for="formGroupExampleInput" class="form-label">Yakin akan menghapus gallery "<strong><?= $row["deskripsi"] ?></strong>"?</label>
                                                             <input type="hidden" name="id" value="<?= $row["id"] ?>">
                                                             <input type="hidden" name="gambar" value="<?= $row["gambar"] ?>">
                                                        </div>
@@ -146,6 +149,7 @@
                                    </div>
                               </div>
                               <!-- Akhir Modal Hapus -->
+
                          </td>
                     </tr>
                <?php
@@ -154,13 +158,12 @@
           </tbody>
      </table>
 
-
      <?php
-     $sql1 = "SELECT * FROM article";
+     $sql1 = "SELECT * FROM about";
      $hasil1 = $conn->query($sql1);
      $total_records = $hasil1->num_rows;
      ?>
-     <p>Total article : <?php echo $total_records; ?></p>
+     <p>Total about : <?php echo $total_records; ?></p>
      <nav class="mb-2">
           <ul class="pagination justify-content-end">
                <?php
@@ -194,7 +197,6 @@
                ?>
           </ul>
      </nav>
-
 
      <!-- CDN BOTSTRAP -->
      <script
