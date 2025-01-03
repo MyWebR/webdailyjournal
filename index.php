@@ -18,7 +18,7 @@ include "koneksi.php";
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
     crossorigin="anonymous" />
   <link rel="stylesheet" href="css/font.css">
-  <link rel="stylesheet" href="css/sejarah.css">
+  <link rel="stylesheet" href="css/darkmode.css">
 </head>
 
 <style>
@@ -101,7 +101,15 @@ include "koneksi.php";
               <a class="nav-link" href="admin.php">Log In</a>
             <?php endif; ?>
           </li>
-
+          <li>
+            <!-- From Uiverse.io by Madflows  -->
+            <div class="toggle-switch">
+              <label class="switch-label">
+                <input type="checkbox" class="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </li>
         </ul>
       </div>
     </div>

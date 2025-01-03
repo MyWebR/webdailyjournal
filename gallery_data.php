@@ -77,7 +77,7 @@
                                    <div class="modal-dialog">
                                         <div class="modal-content">
                                              <div class="modal-header">
-                                                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Article</h1>
+                                                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Gallery</h1>
                                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                              </div>
                                              <form method="post" action="" enctype="multipart/form-data">
@@ -96,9 +96,9 @@
                                                             <label for="formGroupExampleInput3" class="form-label">Gambar Lama</label>
                                                             <?php
                                                             if ($row["gambar"] != '') {
-                                                                 if (file_exists('img/' . $row["gambar"] . '')) {
+                                                                 if (file_exists('img_gallery/' . $row["gambar"] . '')) {
                                                             ?>
-                                                                      <br><img src="img/<?= $row["gambar"] ?>" width="100">
+                                                                      <br><img src="img_gallery/<?= $row["gambar"] ?>" width="100">
                                                             <?php
                                                                  }
                                                             }

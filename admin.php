@@ -28,6 +28,8 @@ if (!isset($_SESSION['username'])) {
         crossorigin="anonymous" />
 
     <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/darkmode.css">
+
 
     <!-- CDN JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -62,12 +64,21 @@ if (!isset($_SESSION['username'])) {
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <!-- From Uiverse.io by Madflows  -->
+                        <div class="toggle-switch">
+                            <label class="switch-label">
+                                <input type="checkbox" class="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- nav end -->
-     
+
     <!-- content begin -->
     <section id="content" class="p-5">
         <div class="container">
