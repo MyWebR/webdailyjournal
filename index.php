@@ -170,7 +170,7 @@ include "koneksi.php";
 
   <!-- about -->
   <section class="container d-flex align-items-center justify-content-center" id="about">
-    <div class="d-lg-flex d-md-block gap-3 mt-5 pt-lg-5">
+    <div class="d-lg-flex d-md-block gap-3 mt-5 pt-5">
       <?php
       $sql = "SELECT * FROM about ORDER BY timedate DESC";
       $hasil = $conn->query($sql);
@@ -196,7 +196,7 @@ include "koneksi.php";
   </section>
 
   <!-- cabang begin -->
-  <section id="cabang" class="container text-center mt-5 pt-lg-5">
+  <section id="cabang" class="container text-center mt-5 pt-5">
     <h2 class="text-center fw-bold border-bottom border-5 border-primary py-3 my-5" style="width: max-content; margin: 0 auto;">Cabang</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
       <?php
@@ -231,7 +231,7 @@ include "koneksi.php";
   <!-- end cabang -->
 
   <!-- article begin -->
-  <section id="article" class="container text-center mt-5 pt-lg-5">
+  <section id="article" class="container text-center mt-5 pt-5">
     <div class="container">
       <h2 class="text-center fw-bold border-bottom border-5 border-primary py-3 my-5" style="width: max-content; margin: 0 auto;">Article</h2>
       <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
@@ -263,15 +263,15 @@ include "koneksi.php";
   <!-- article end -->
 
   <!-- list harga begin -->
-  <section id="price_list" class="container mt-5 pt-lg-5">
+  <section id="price_list" class="container mt-5 pt-5">
     <h2 class="text-center fw-bold border-bottom border-5 border-primary py-3 my-5" style="width: max-content; margin: 0 auto;">
-      Daftar Harga
-      <span style="font-size: 34px; margin: 0; padding: 0; color:  #172554;">M</span>
-      <span style="font-size: 36px; margin: 0; padding: 0; color: #075985;">u</span>
-      <span style="font-size: 38px; margin: 0; padding: 0; color: #0369a1;">r</span>
-      <span style="font-size: 40px; margin: 0; padding: 0; color: #0284c7;">a</span>
-      <span style="font-size: 42px; margin: 0; padding: 0; color: #0ea5e9;">h</span>
-      <span style="font-size: 44px; margin: 0; padding: 0; color: #38bdf8;">h</span>
+      Daftar Harga Murah
+      <!-- <span class="mx-n2" style="font-size: 28px; margin: 0; padding: 0; color:  #172554;">M</span> -->
+      <!-- <span class="mx-n2" style="font-size: 30px; margin: 0; padding: 0; color: #075985;">u</span> -->
+      <!-- <span class="mx-n2" style="font-size: 32px; margin: 0; padding: 0; color: #0369a1;">r</span> -->
+      <!-- <span class="mx-n2" style="font-size: 36px; margin: 0; padding: 0; color: #0284c7;">a</span> -->
+      <!-- <span class="mx-n2" style="font-size: 38px; margin: 0; padding: 0; color: #0ea5e9;">h</span> -->
+      <!-- <span class="mx-n2" style="font-size: 40px; margin: 0; padding: 0; color: #38bdf8;">h</span> -->
 
     </h2>
     <div class="d-block justify-content-center gap-5 p-3 mb-5 ">
