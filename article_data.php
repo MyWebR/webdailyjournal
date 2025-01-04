@@ -17,8 +17,8 @@
 
 <body>
 
-     <table class="table table-striped">
-          <thead class="table-dark">
+     <table class="table table-light table-striped table-hover" id="table">
+          <thead class="table-primary">
                <tr>
                     <th>No</th>
                     <th class="col-2">Judul</th>
@@ -34,7 +34,7 @@
                include 'koneksi.php';
 
                $hlm = (isset($_POST['hlm'])) ? $_POST['hlm'] : 1;
-               $limit = 3;
+               $limit = 4;
                $limit_start = ($hlm - 1) * $limit;
                $no = $limit_start + 1;
 

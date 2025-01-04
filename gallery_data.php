@@ -18,8 +18,8 @@
 </head>
 
 <body>
-     <table class="table table-striped custom-table">
-          <thead class="table-dark">
+     <table class="table table-light table-striped table-hover" id="table">
+          <thead class="table-primary">
                <tr>
                     <th class="col-1">No</th>
                     <th class="col-1">Judul</th>
@@ -85,7 +85,7 @@
                                                        <div class="mb-3">
                                                             <label for="formGroupExampleInput" class="form-label">Judul</label>
                                                             <input type="hidden" name="id" value="<?= $row["id"] ?>">
-                                                            <input type="text" class="form-control" name="judul" placeholder="Tuliskan Judul Artikel" value="<?= $row["judul"] ?>" required>
+                                                            <input type="text" class="form-control" name="judul" placeholder="Tuliskan Judul Gallery (opsional)" value="<?= $row["judul"] ?>">
                                                        </div>
 
                                                        <div class="mb-3">
@@ -98,7 +98,7 @@
                                                             if ($row["gambar"] != '') {
                                                                  if (file_exists('img_gallery/' . $row["gambar"] . '')) {
                                                             ?>
-                                                                      <br><img src="img_gallery/<?= $row["gambar"] ?>" width="100">
+                                                                      <br><img src="img_gallery/<?= $row["gambar"] ?>" width="100%">
                                                             <?php
                                                                  }
                                                             }

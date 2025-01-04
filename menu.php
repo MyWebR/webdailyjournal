@@ -27,10 +27,6 @@
                          <i class="bi bi-clipboard-data"></i>
                          Dashboard
                     </a>
-                    <a href="admin.php?page=article" class="hover-dashboard border border-4 border-warning-subtle bg-warning d-flex align-items-center gap-3 fs-3 text-decoration-none p-3 rounded-4 justify-content-center text-white">
-                         <i class="bi bi-file-earmark-text"></i>
-                         Article
-                    </a>
                     <a href="admin.php?page=gallery" class="hover-dashboard border border-4 border-success-subtle bg-success d-flex align-items-center gap-3 fs-3 text-decoration-none p-3 rounded-4 justify-content-center text-white">
                          <i class="bi bi-images"></i>
                          Gallery
@@ -42,6 +38,14 @@
                     <a href="admin.php?page=cabang" class="hover-dashboard border border-4 border-info-subtle bg-info d-flex align-items-center gap-3 fs-3 text-decoration-none p-3 rounded-4 justify-content-center text-white">
                          <i class="bi bi-buildings"></i>
                          Cabang
+                    </a>
+                    <a href="admin.php?page=article" class="hover-dashboard border border-4 border-warning-subtle bg-warning d-flex align-items-center gap-3 fs-3 text-decoration-none p-3 rounded-4 justify-content-center text-white">
+                         <i class="bi bi-file-earmark-text"></i>
+                         Article
+                    </a>
+                    <a href="admin.php?page=price_list" class="hover-dashboard border border-4 border-primary-subtle bg-primary d-flex align-items-center gap-3 fs-3 text-decoration-none p-3 rounded-4 justify-content-center text-white">
+                         <i class="bi bi-buildings"></i>
+                         Price List
                     </a>
                </div>
           </div>

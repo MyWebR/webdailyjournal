@@ -30,7 +30,7 @@ include 'upload_gallery.php'; // Sertakan file upload_gallery.php
                     <!-- Data gambar akan ditampilkan disini -->
                </div>
 
-               <!-- Modal Tambah/Edit Gambar -->
+               <!-- Modal Tambah -->
                <div class="modal fade" id="modalTambah" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                          <div class="modal-content">
@@ -39,13 +39,13 @@ include 'upload_gallery.php'; // Sertakan file upload_gallery.php
                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <form method="post" action="" enctype="multipart/form-data">
-                                   <div class="modal-body">
+                                   <div class="modal-body bg-light">
                                         <div class="mb-3">
                                              <label for="formGroupExampleInput" class="form-label">Judul</label>
-                                             <input type="text" class="form-control" name="judul" placeholder="Tuliskan Judul Gambar" value="<?= isset($judul) ? $judul : ''; ?>" required>
+                                             <input type="text" class="form-control" name="judul" placeholder="Tuliskan Judul Gambar (opsional)" value="<?= isset($judul) ? $judul : ''; ?>">
                                         </div>
                                         <div class="mb-3">
-                                             <label for="formGroupExampleInput2" class="form-label">Gambar</label>
+                                             <label for="formGroupExampleInput2" class="form-label">Gambar <small>Max 50 MB</small></label>
                                              <input type="file" class="form-control" name="gambar">
 
                                              <?php if (isset($gambar_lama) && $gambar_lama != ''): ?>

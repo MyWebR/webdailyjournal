@@ -59,7 +59,7 @@ include 'koneksi.php'; // Path ke file koneksi.php
                                 </div>
                                 <div class="mb-3">
                                     <label for="formGroupExampleInput2" class="form-label">Gambar</label>
-                                    <input type="file" class="form-control" name="gambar">
+                                    <input type="file" class="form-control" name="gambar" required>
                                 </div>
                             </div>
                             <div class="modal-footer">

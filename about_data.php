@@ -18,8 +18,8 @@
 </head>
 
 <body>
-     <table class="table table-striped custom-table">
-          <thead class="table-dark">
+     <table class="table table-light table-striped table-hover" id="table">
+          <thead class="table-primary">
                <tr>
                     <th>No</th>
                     <th class="col-5">Deskripsi</th>
@@ -90,11 +90,11 @@
                                                        <div class="mb-3">
                                                             <label for="floatingTextarea2">Deskripsi</label>
                                                             <input type="hidden" name="id" value="<?= $row["id"] ?>">
-                                                            <textarea class="form-control" placeholder="Tuliskan Isi deskripsi" name="deskripsi" required><?= $row["deskripsi"] ?></textarea>
+                                                            <textarea class="form-control" placeholder="Tuliskan Isi deskripsi" name="deskripsi" rows="6" required><?= $row["deskripsi"] ?></textarea>
                                                        </div>
                                                        <div class="mb-3">
                                                             <label for="formGroupExampleInput" class="form-label">link</label>
-                                                            <input type="text" class="form-control" name="link" value="<?= $row["link"] ?>">
+                                                            <input type="text" class="form-control" name="link" value="<?= $row["link"] ?>" required>
                                                        </div>
                                                        <div class="mb-3">
                                                             <label for="formGroupExampleInput2" class="form-label">Ganti Gambar</label>

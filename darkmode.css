@@ -1,0 +1,146 @@
+/* darkmode button */
+/* From Uiverse.io by Madflows */
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  margin-top: 10px;
+  height: 25px;
+  --light: #d8dbe0;
+  --dark: #28292c;
+  --link: rgb(27, 129, 112);
+  --link-hover: rgb(24, 94, 82);
+}
+
+.switch-label {
+  position: absolute;
+  width: 100%;
+  height: 25px;
+  background-color: var(--dark);
+  border-radius: 12.5px;
+  cursor: pointer;
+  border: 2px solid var(--dark);
+}
+
+.checkbox {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12.5px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider {
+  background-color: var(--light);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 6px -2px 0px 0px var(--light);
+  box-shadow: inset 6px -2px 0px 0px var(--light);
+  background-color: var(--dark);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider::before {
+  -webkit-transform: translateX(25px);
+  -ms-transform: translateX(25px);
+  transform: translateX(25px);
+  background-color: var(--dark);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* dark mode element */
+
+/* card cabang */
+.card-dark {
+  background: #3f3f46;
+  color: white;
+  box-shadow: rgba(255, 255, 255, 0.16) 0px 3px 6px,
+    rgba(255, 255, 255, 0.23) 0px 3px 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-dark:hover {
+  box-shadow: rgba(255, 255, 255, 0.3) 0px 19px 38px,
+    rgba(255, 255, 255, 0.22) 0px 15px 12px;
+}
+
+.cardTextLight {
+  color: rgb(0, 0, 0) !important;
+}
+
+.cardTextDark {
+  color: white !important;
+}
+
+.card-light {
+  background: #ffffff;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-light:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+/* NAV ADMIN YANG DI ATAS TOMBOL CREATE DATA  */
+.breadcrumb-dark .breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.breadcrumb-light .breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.breadcrumb-dark .breadcrumb-item a {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.breadcrumb-light .breadcrumb-item a {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* PRICE LIST */
+.price-light {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  transition: box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.5s ease-in-out;
+}
+
+.price-light:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset,
+    rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+
+.price-dark {
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 2px 4px,
+    rgba(255, 255, 255, 0.3) 0px 7px 13px -3px,
+    rgba(255, 255, 255, 0.25) 0px -3px 0px inset;
+  transition: box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.5s ease-in-out;
+}
+
+.price-dark:hover {
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 2px 4px,
+    rgba(255, 255, 255, 0.25) 0px 7px 13px -3px,
+    rgba(255, 255, 255, 0.3) 0px -3px 0px inset,
+    rgba(255, 255, 255, 0.35) 0px -50px 36px -28px inset;
+}

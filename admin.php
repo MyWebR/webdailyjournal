@@ -28,7 +28,7 @@ if (!isset($_SESSION['username'])) {
         crossorigin="anonymous" />
 
     <link rel="stylesheet" href="css/font.css">
-    <link rel="stylesheet" href="css/darkmode.css">
+    <link rel="stylesheet" href="darkmode.css">
 
 
     <!-- CDN JQUERY -->
@@ -39,7 +39,7 @@ if (!isset($_SESSION['username'])) {
     <!-- nav begin -->
     <nav class="navbar navbar-expand-sm sticky-top border-bottom py-3" style="backdrop-filter: blur(10px);">
         <div class="container">
-            <a class="navbar-brand" href=".">Mie Ayam Legenda</a>
+            <a class="navbar-brand cardTextLight" href="." id="smallcard">Mie Ayam Legenda</a>
             <button
                 class="navbar-toggler"
                 type="button"
@@ -68,7 +68,7 @@ if (!isset($_SESSION['username'])) {
                         <!-- From Uiverse.io by Madflows  -->
                         <div class="toggle-switch">
                             <label class="switch-label">
-                                <input type="checkbox" class="checkbox">
+                                <input id="darkMode" type="checkbox" class="checkbox">
                                 <span class="slider"></span>
                             </label>
                         </div>
@@ -86,7 +86,7 @@ if (!isset($_SESSION['username'])) {
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="admin.php">Admin</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">
+                    <li class="breadcrumb-item active cardTextLight" id="smallcard" aria-current="page">
                         <?= isset($_GET['page']) ? ucfirst($_GET['page']) : "Menu" ?>
                     </li>
                 </ol>
@@ -144,13 +144,14 @@ if (!isset($_SESSION['username'])) {
                     <h5>SOCIAL MEDIA</h5>
                     <div class="d-flex gap-3">
                         <a href="404.php" class="text-white"><i class="bi bi-facebook fs-4"></i></a>
-                        <a href="#" class="text-white"><i class="bi bi-threads fs-4"></i></a>
-                        <a href="#" class="text-white"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="404.php" class="text-white"><i class="bi bi-threads fs-4"></i></a>
+                        <a href="https://www.instagram.com/restuardyans/" class="text-white"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="https://github.com/MyWebR" class="text-white"><i class="bi bi-github fs-4"></i></a>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-4">
-                <small>&copy; 2024 Restu Ardiansyah. All rights reserved.</small>
+                <small>&copy; 2025 Restu Ardiansyah. All rights reserved.</small>
             </div>
         </div>
     </footer>
@@ -163,6 +164,7 @@ if (!isset($_SESSION['username'])) {
         crossorigin="anonymous"></script>
 
 
+    <script src="dark-mode.js"></script>
 </body>
 
 </html>

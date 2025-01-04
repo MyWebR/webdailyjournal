@@ -17,8 +17,8 @@
 
 <body>
 
-     <table class="table table-striped">
-          <thead class="table-dark">
+     <table class="table table-light table-striped table-hover" id="table">
+          <thead class="table-primary">
                <tr>
                     <th>No</th>
                     <th class="col-1 col-sm-2 col-md-2">Nama cabang</th>
@@ -137,7 +137,7 @@
                                              <form method="post" action="" enctype="multipart/form-data">
                                                   <div class="modal-body">
                                                        <div class="mb-3">
-                                                            <label for="formGroupExampleInput" class="form-label">Yakin akan menghapus artikel "<strong><?= $row["nama_cabang"] ?></strong>"?</label>
+                                                            <label for="formGroupExampleInput" class="form-label">Yakin akan menghapus Cabang"<strong><?= $row["nama_cabang"] ?></strong>"?</label>
                                                             <input type="hidden" name="id" value="<?= $row["id"] ?>">
                                                             <input type="hidden" name="gambar" value="<?= $row["gambar"] ?>">
                                                        </div>

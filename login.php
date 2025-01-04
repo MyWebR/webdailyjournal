@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
      <body>
           <section class="d-lg-flex d-md-block">
-               <div id="right" class="order-2 w-100 p-5 text-white d-flex justify-content-center align-items-center bg-success" style="height: 100vh;">
+               <div id="right" class="order-2 w-100 p-5 text-white d-flex justify-content-center align-items-center bg-primary" style="height: 100vh;">
                     <div class="text-center">
                          <h1 class="fs-1 fw-bold">Hallo, Teman</h1>
                          <p class="fs-5">Silakan masuk ke akun Anda untuk melanjutkan.</p>
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                               <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
                               <label for="floatingPassword">Password</label>
                          </div>
-                         <button type="submit" class="mt-3 w-100 btn btn-success">Login</button>
+                         <button type="submit" class="mt-3 w-100 btn btn-primary">Login</button>
                     </form>
                </div>
           </section>
