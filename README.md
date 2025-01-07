@@ -1,6 +1,6 @@
 # Web Dailyjournal
 
-Web Dailyjournal adalah proyek web yang menceritakan tentang asal-usul mie ayam dan bagaimana mie ayam dapat populer di Indonesia. Proyek ini dibuat untuk memenuhi tugas di salah satu mata kuliah.
+Web Dailyjournal adalah proyek web tentang informasi lengkap mengenai mie ayam, termasuk berbagai varian, tempat terbaik untuk mencicipinya, dan tips untuk menikmatinya.
 
 ---
 
