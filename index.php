@@ -183,7 +183,7 @@ include "koneksi.php";
           <p><?= $row["deskripsi"] ?></p>
           <a href="<?= $row["link"] ?>" class="mb-3">Baca artikel selengkapnya</a>
           <br>
-          <small class="text-body-secondary">Ditulis pada: <?= $row["timedate"] ?></small>
+          <small class="text-body-secondary text-dark" id="smallcard">Ditulis pada: <?= $row["timedate"] ?></small>
         </div>
         <!-- right -->
         <div id="img" class="mt-md-0 mt-3 border p-3 bg-dark rounded-3 border-2 d-flex justify-content-center">
