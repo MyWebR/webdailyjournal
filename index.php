@@ -401,10 +401,11 @@ include "koneksi.php";
         <div class="col-6 col-md-4 mb-4">
           <h5>KATEGORI TULISAN</h5>
           <ul class="list-unstyled">
-            <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+            <li><a href="#gallery" class="text-white text-decoration-none">Home</a></li>
             <li><a href="#about" class="text-white text-decoration-none">About</a></li>
-            <li><a href="#sejarah" class="text-white text-decoration-none">Sejarah</a></li>
+            <li><a href="#cabang" class="text-white text-decoration-none">Cabang</a></li>
             <li><a href="#article" class="text-white text-decoration-none">Article</a></li>
+            <li><a href="#price_list" class="text-white text-decoration-none">Daftar Harga</a></li>
           </ul>
         </div>
 
