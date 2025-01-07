@@ -120,7 +120,7 @@ include "koneksi.php";
   <!-- nav end -->
 
   <!-- gallery -->
-  <section class="container" id="gallery">
+  <section class="container mt-lg-0 mt-5" id="gallery">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <?php
@@ -232,7 +232,7 @@ include "koneksi.php";
 
   <!-- article begin -->
   <section id="article" class="container text-center mt-5 pt-5">
-    <div class="container">
+    <div>
       <h2 class="text-center fw-bold border-bottom border-5 border-primary py-3 my-5" style="width: max-content; margin: 0 auto;">Article</h2>
       <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
         <?php

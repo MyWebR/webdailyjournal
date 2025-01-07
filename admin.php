@@ -85,7 +85,7 @@ if (!isset($_SESSION['username'])) {
             <!-- Breadcrumbs -->
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="admin.php">Admin</a></li>
+                    <li class="breadcrumb-item"><a href="admin.php" class="text-decoration-none fw-medium"><?= $_SESSION['username'] ?></a></li>
                     <li class="breadcrumb-item active cardTextLight" id="smallcard" aria-current="page">
                         <?= isset($_GET['page']) ? ucfirst($_GET['page']) : "Menu" ?>
                     </li>
@@ -104,9 +104,8 @@ if (!isset($_SESSION['username'])) {
             ?>
         </div>
     </section>
-
-
     <!-- content end -->
+
     <!-- footer begin -->
     <footer class="bg-dark text-white py-5">
         <div class="container">
