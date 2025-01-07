@@ -44,7 +44,7 @@
                          Article
                     </a>
                     <a href="admin.php?page=price_list" class="hover-dashboard border border-4 border-primary-subtle bg-primary d-flex align-items-center gap-3 fs-3 text-decoration-none p-3 rounded-4 justify-content-center text-white">
-                         <i class="bi bi-buildings"></i>
+                         <i class="bi bi-receipt-cutoff"></i>
                          Price List
                     </a>
                </div>

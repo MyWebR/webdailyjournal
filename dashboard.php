@@ -114,7 +114,7 @@ $jumlah_price_list = $hasil2->num_rows;
                 <div class="d-flex justify-content-between">
                     <div class="p-1 d-block">
                         <h5 class="card-title cardTextLight" id="smallcard">
-                            <i class="bi bi-buildings"></i>
+                            <i class="bi bi-receipt-cutoff"></i>
                             Menu
                         </h5>
                         <smal class="card-title cardTextLight" id="smallcard"></i>
