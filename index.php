@@ -97,7 +97,7 @@ include "koneksi.php";
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="admin.php">Profile</a></li>
-                <li><a class="dropdown-item" href="logoutinindex.php">Logout</a></li>
+                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
               </ul>
             <?php else: ?>
               <!-- Jika belum login, tampilkan "Log In" -->
