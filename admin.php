@@ -134,11 +134,12 @@ if (!isset($_SESSION['username'])) {
                 <div class="col-6 col-md-4 mb-4">
                     <h5>KATEGORI TULISAN</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#gallery" class="text-white text-decoration-none">Home</a></li>
-                        <li><a href="#about" class="text-white text-decoration-none">About</a></li>
-                        <li><a href="#cabang" class="text-white text-decoration-none">Cabang</a></li>
-                        <li><a href="#article" class="text-white text-decoration-none">Article</a></li>
-                        <li><a href="#price_list" class="text-white text-decoration-none">Daftar Harga</a></li>
+                        <li><a href="admin.php?page=dashboard" class="text-white text-decoration-none">Dashboard</a></li>
+                        <li><a href="admin.php?page=gallery" class="text-white text-decoration-none">Gallery</a></li>
+                        <li><a href="admin.php?page=about" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="admin.php?page=cabang" class="text-white text-decoration-none">Cabang</a></li>
+                        <li><a href="admin.php?page=article" class="text-white text-decoration-none">Article</a></li>
+                        <li><a href="admin.php?page=price_list" class="text-white text-decoration-none">Daftar Harga</a></li>
                     </ul>
                 </div>
 
