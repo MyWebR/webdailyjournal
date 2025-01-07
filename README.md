@@ -15,7 +15,7 @@ Web Dailyjournal adalah proyek web tentang informasi lengkap mengenai mie ayam, 
 
 ## 🎨 Fitur untuk Admin
 - **Dashboard Manajemen**:
-  - Menampilkan statistik jumlah data artikel, gambar galeri, cabang, dan daftar harga yang tersimpan.
+  - Menampilkan statistik jumlah data artikel, gambar galeri, about, cabang, dan daftar harga yang tersimpan.
 - **Manajemen Artikel yang Ditingkatkan**:
   - Tambah, Edit, Hapus data untuk setiap artikel.
 - **Manajemen Galeri Foto**:
