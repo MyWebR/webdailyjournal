@@ -5,20 +5,23 @@ Web Dailyjournal adalah proyek web yang menceritakan tentang asal-usul mie ayam 
 ---
 
 ## 🚀 Fitur Utama
+
 - **Tambah Artikel**: Admin dapat menambahkan artikel baru.
 - **Edit Artikel**: Admin dapat mengedit isi artikel yang ada.
 - **Hapus Artikel**: Admin dapat menghapus artikel dari situs.
+- **Dashboard**: Admin dapat melihat jumlah data yang ada pada di setiap fitur yaitu **Gallery, About, Cabang, Article, Dan Price List/ Daftar Harga**.
 
 ---
 
 ## 🎨 Fitur Tambahan untuk Admin
-
+- **Dashboard Manajemen**:
+  - Menampilkan statistik jumlah data artikel, gambar galeri, cabang, dan daftar harga yang tersimpan.
 - **Manajemen Artikel yang Ditingkatkan**:
   - Tambah gambar untuk setiap artikel.
 - **Manajemen Galeri Foto**:
   - Tambah, edit, dan hapus gambar di galeri dengan preview sebelum upload.
   - Tambah deskripsi singkat untuk setiap gambar.
-- **Modifikasi Halaman Tentang**:
+- **Modifikasi Halaman Tentang/About**:
   - Admin dapat memperbarui teks dan menambahkan gambar pendukung di halaman "Tentang/about".
 - **Manajemen Cabang atau Lokasi**:
   - Tambahkan, edit, dan hapus informasi cabang dengan peta interaktif menggunakan Google Maps URL.
@@ -26,11 +29,12 @@ Web Dailyjournal adalah proyek web yang menceritakan tentang asal-usul mie ayam 
 - **Pricelist Dinamis**:
   - Tambahkan dan edit daftar harga untuk menu atau produk.
   - Fitur kategori seperti makanan, minuman, atau paket.
-  - Admin juga dapat menambahkan diskon di setiap menu dengan aturan (1-100)%
-  
+  - Admin juga dapat menambahkan diskon di setiap menu dengan aturan (1-100)%.
+
 ---
 
 ## 📚 Teknologi yang Digunakan
+
 - **HTML5**, **CSS3**, **JavaScript** untuk tampilan antarmuka.
 - **PHP** untuk pemrosesan server-side.
 - **MySQL** untuk database.
@@ -39,14 +43,11 @@ Web Dailyjournal adalah proyek web yang menceritakan tentang asal-usul mie ayam 
 ---
 
 ## 🤝 Kontribusi
+
 Kontribusi sangat disambut! Silakan buat pull request atau hubungi saya untuk berdiskusi lebih lanjut.
 
 ---
 
-## 📜 Lisensi
-Proyek ini dilisensikan di bawah [MIT License](LICENSE).
-
----
-
 ## 📞 Kontak
+
 Jika ada pertanyaan, silakan hubungi saya di: ardiansyahrestu713@gmail.com
