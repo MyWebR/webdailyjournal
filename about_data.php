@@ -53,7 +53,7 @@
                ?>
                     <tr>
                          <td><?= $no++ ?></td>
-                         <td class="align-middle"><strong><?= $row["deskripsi"] ?></strong></td>
+                         <td class="align-middle"><strong><?= $row["deskripsi"] ?></td>
                          <td><a href="<?= $row["link"] ?>"><?= $row["link"] ?></a></td>
                          <td><?= $row["timedate"] ?></td>
                          <td>
@@ -106,7 +106,7 @@
                                                             if ($row["gambar"] != '') {
                                                                  if (file_exists('img_about/' . $row["gambar"] . '')) {
                                                             ?>
-                                                                      <br><img src="img_about/<?= $row["gambar"] ?>" width="100">
+                                                                      <br><img src="img_about/<?= $row["gambar"] ?>" width="100%" class="rounded-3">
                                                             <?php
                                                                  }
                                                             }

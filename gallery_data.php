@@ -98,7 +98,7 @@
                                                             if ($row["gambar"] != '') {
                                                                  if (file_exists('img_gallery/' . $row["gambar"] . '')) {
                                                             ?>
-                                                                      <br><img src="img_gallery/<?= $row["gambar"] ?>" width="100%">
+                                                                      <br><img src="img_gallery/<?= $row["gambar"] ?>" width="100%" class="rounded-3">
                                                             <?php
                                                                  }
                                                             }
@@ -130,6 +130,19 @@
                                                             <label for="formGroupExampleInput" class="form-label">Yakin akan menghapus gallery "<strong><?= $row["judul"] ?></strong>"?</label>
                                                             <input type="hidden" name="id" value="<?= $row["id"] ?>">
                                                             <input type="hidden" name="gambar" value="<?= $row["gambar"] ?>">
+                                                       </div>
+                                                       <div class="mb-3">
+                                                            <label for="formGroupExampleInput2" class="form-label">Gambar</label>
+                                                            <?php
+                                                            if ($row["gambar"] != '') {
+                                                                 if (file_exists('img_gallery/' . $row["gambar"] . '')) {
+                                                            ?>
+                                                                      <br><img class="rounded-3" src="img_gallery/<?= $row["gambar"] ?>" width="100%">
+                                                            <?php
+                                                                 }
+                                                            }
+                                                            ?>
+
                                                        </div>
                                                   </div>
                                                   <div class="modal-footer">

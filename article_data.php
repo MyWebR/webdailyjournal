@@ -91,7 +91,7 @@
                                                        </div>
                                                        <div class="mb-3">
                                                             <label for="floatingTextarea2">Isi</label>
-                                                            <textarea class="form-control" placeholder="Tuliskan Isi Artikel" name="isi" required><?= $row["isi"] ?></textarea>
+                                                            <textarea class="form-control" placeholder="Tuliskan Isi Artikel" name="isi" rows="6" required><?= $row["isi"] ?></textarea>
                                                        </div>
                                                        <div class="mb-3">
                                                             <label for="formGroupExampleInput2" class="form-label">Ganti Gambar</label>
@@ -103,7 +103,7 @@
                                                             if ($row["gambar"] != '') {
                                                                  if (file_exists('img/' . $row["gambar"] . '')) {
                                                             ?>
-                                                                      <br><img src="img/<?= $row["gambar"] ?>" width="100">
+                                                                      <br><img src="img/<?= $row["gambar"] ?>" width="100%" class="rounded-3">
                                                             <?php
                                                                  }
                                                             }

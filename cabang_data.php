@@ -92,7 +92,7 @@
                                                        </div>
                                                        <div class="mb-3">
                                                             <label for="floatingTextarea2">Detail alamat</label>
-                                                            <textarea class="form-control" placeholder="Masukan detail alamat" name="detail_alamat" required><?= $row["detail_alamat"] ?></textarea>
+                                                            <textarea class="form-control" placeholder="Masukan detail alamat" name="detail_alamat" rows="3" required><?= $row["detail_alamat"] ?></textarea>
                                                        </div>
                                                        <div class="mb-3">
                                                             <label for="formGroupExampleInput" class="form-label">URL google maps</label>
@@ -108,7 +108,7 @@
                                                             if ($row["gambar"] != '') {
                                                                  if (file_exists('img_cabang/' . $row["gambar"] . '')) {
                                                             ?>
-                                                                      <br><img src="img_cabang/<?= $row["gambar"] ?>" width="100">
+                                                                      <br><img src="img_cabang/<?= $row["gambar"] ?>" width="100%" class="rounded-3">
                                                             <?php
                                                                  }
                                                             }
